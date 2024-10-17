@@ -1,7 +1,16 @@
-import "./App.css";
+import Form from "./components/Form";
+import Preview from "./components/Preview";
 
 function App() {
-	return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+	return (
+		<>
+			<h2 className="text-3xl font-bold text-center">CV Application</h2>
+			<main>
+				<Form />
+				<Preview />
+			</main>
+		</>
+	);
 }
 
 export default App;
