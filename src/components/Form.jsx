@@ -8,8 +8,18 @@ const Form = () => {
 				<Fields label="Phone Number" />
 				<Fields label="Address" />
 			</section>
-			<section></section>
-			<section></section>
+			<section className="flex flex-col gap-4">
+				<h3 className="text-xl font-bold text-center">Education</h3>
+				<Fields label="School / University" />
+				<Fields label="Area of Study" />
+				<div className="flex w-full gap-4">
+					<Fields className="w-full flex-1" label="Start Date" />
+					<Fields className="w-full flex-1" label="End Date" />
+				</div>
+			</section>
+			<section className="flex flex-col gap-4">
+				<h3 className="text-xl font-bold text-center">Experience</h3>
+			</section>
 		</form>
 	);
 };
@@ -17,7 +27,7 @@ const Form = () => {
 const Fields = ({ label }) => {
 	return (
 		<div className="flex flex-col gap-2">
-			<label key={label}>{label}</label>
+			<label>{label}</label>
 			<input
 				className="p-2"
 				placeholder={`Enter your ${label.toLowerCase()}`}
