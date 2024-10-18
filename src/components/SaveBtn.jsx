@@ -1,7 +1,6 @@
 const SaveBtn = ({ onSubmit }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log("hi");
 		if (onSubmit) {
 			onSubmit();
 		}

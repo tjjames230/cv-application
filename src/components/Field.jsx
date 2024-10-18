@@ -8,7 +8,7 @@ const Field = ({
 			<label>{label}</label>
 			<input
 				type={type}
-				className="p-2"
+				className="p-2 text-sm"
 				placeholder={`Enter your ${label.toLowerCase()}`}
 			></input>
 		</div>
