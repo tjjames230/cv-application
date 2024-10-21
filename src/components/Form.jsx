@@ -3,7 +3,7 @@ import Education from "./Education";
 import Experience from "./Experience";
 import { useState } from "react";
 
-const Form = () => {
+const Form = ({ details, setDetails }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 
 	return (
@@ -11,6 +11,8 @@ const Form = () => {
 			<PersonalDetails
 				isActive={activeIndex === 0}
 				onShow={() => setActiveIndex(0)}
+				details={details}
+				setDetails={setDetails}
 			/>
 			<Education
 				isActive={activeIndex === 1}

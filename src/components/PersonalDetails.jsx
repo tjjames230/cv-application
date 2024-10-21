@@ -1,33 +1,25 @@
 import Field from "./Field";
 import SaveBtn from "./SaveBtn";
-import { useState } from "react";
 
-const PersonalDetails = ({ isActive, onShow }) => {
-	const [info, setInfo] = useState({
-		name: null,
-		email: null,
-		number: null,
-		address: null,
-	});
-
+const PersonalDetails = ({ isActive, onShow, details, setDetails }) => {
 	const handleSubmit = () => {
-		console.log(info);
+		console.log({ details });
 	};
 
 	const handleNameChange = (e) => {
-		setInfo({ ...info, name: e.target.value });
+		setDetails({ ...details, name: e.target.value });
 	};
 
 	const handleEmailChange = (e) => {
-		setInfo({ ...info, email: e.target.value });
+		setDetails({ ...details, email: e.target.value });
 	};
 
 	const handleNumberChange = (e) => {
-		setInfo({ ...info, number: e.target.value });
+		setDetails({ ...details, number: e.target.value });
 	};
 
 	const handleAddressChange = (e) => {
-		setInfo({ ...info, address: e.target.value });
+		setDetails({ ...details, address: e.target.value });
 	};
 
 	return (
