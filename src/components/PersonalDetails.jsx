@@ -3,7 +3,7 @@ import SaveBtn from "./SaveBtn";
 
 const PersonalDetails = ({ isActive, onShow, details, setDetails }) => {
 	const handleSubmit = () => {
-		console.log({ details });
+		console.log(details);
 	};
 
 	const handleNameChange = (e) => {
