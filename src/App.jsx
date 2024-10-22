@@ -10,12 +10,37 @@ function App() {
 		address: null,
 	});
 
+	const [education, setEducation] = useState({
+		school: null,
+		study: null,
+		startDate: null,
+		endDate: null,
+	});
+
+	const [experience, setExperience] = useState({
+		company: null,
+		title: null,
+		startDate: null,
+		endDate: null,
+	});
+
 	return (
 		<>
 			<h2 className="text-3xl font-bold text-center">CV Application</h2>
 			<main>
-				<Form details={details} setDetails={setDetails} />
-				<Preview details={details} />
+				<Form
+					details={details}
+					setDetails={setDetails}
+					education={education}
+					setEducation={setEducation}
+					experience={experience}
+					setExperience={setExperience}
+				/>
+				<Preview
+					details={details}
+					education={education}
+					experience={experience}
+				/>
 			</main>
 		</>
 	);
