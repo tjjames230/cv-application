@@ -3,6 +3,7 @@ const Field = ({
 	label,
 	className = "flex flex-col w-full gap-2",
 	handleInputChange,
+	detail,
 }) => {
 	return (
 		<div className={className}>
@@ -12,6 +13,7 @@ const Field = ({
 				className="p-2 text-sm"
 				placeholder={`Enter your ${label.toLowerCase()}`}
 				onChange={handleInputChange}
+				defaultValue={detail}
 			></input>
 		</div>
 	);

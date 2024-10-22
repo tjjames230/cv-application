@@ -27,14 +27,27 @@ const PersonalDetails = ({ isActive, onShow, details, setDetails }) => {
 			<h3 className="text-xl font-bold text-center">Personal Details</h3>
 			{isActive ? (
 				<>
-					<Field label="Full Name" handleInputChange={handleNameChange} />
+					<Field
+						label="Full Name"
+						handleInputChange={handleNameChange}
+						detail={details.name}
+					/>
 					<Field
 						label="Email"
 						type="email"
 						handleInputChange={handleEmailChange}
+						detail={details.email}
 					/>
-					<Field label="Phone Number" handleInputChange={handleNumberChange} />
-					<Field label="Address" handleInputChange={handleAddressChange} />
+					<Field
+						label="Phone Number"
+						handleInputChange={handleNumberChange}
+						detail={details.number}
+					/>
+					<Field
+						label="Address"
+						handleInputChange={handleAddressChange}
+						detail={details.address}
+					/>
 					<SaveBtn onSubmit={handleSubmit} />
 				</>
 			) : (
