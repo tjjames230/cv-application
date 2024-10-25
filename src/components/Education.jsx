@@ -12,12 +12,12 @@ const Education = ({ isActive, onShow, education, setEducation }) => {
 				<>
 					<EducationList
 						isActive={activeIndex === 0}
-						onShow={() => setActiveIndex(0)}
+						onShow={() => setActiveIndex(1)}
 						education={education}
 					/>
 					<EducationForm
 						isActive={activeIndex === 1}
-						onShow={() => setActiveIndex(1)}
+						setActiveIndex={setActiveIndex}
 						education={education}
 						setEducation={setEducation}
 					/>

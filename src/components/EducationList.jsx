@@ -1,15 +1,11 @@
-import AddNewBtn from "./AddNewBtn";
-
 const EducationList = ({ isActive, onShow, education }) => {
-	const handleNew = () => {
-		console.log("test");
-	};
+	console.log(education);
 
 	if (isActive) {
 		return (
 			<section>
-				<h3></h3>
-				<AddNewBtn onSubmit={handleNew} />
+				<h3>Test</h3>
+				<button onClick={onShow}>Create New</button>
 			</section>
 		);
 	}

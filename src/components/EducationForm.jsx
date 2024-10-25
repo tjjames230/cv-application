@@ -1,26 +1,45 @@
+import { useState } from "react";
 import Field from "./Field";
-import SaveBtn from "./SaveBtn";
 
-const EducationForm = ({ isActive, onShow, education, setEducation }) => {
+const EducationForm = ({
+	isActive,
+	setActiveIndex,
+	education,
+	setEducation,
+}) => {
+	const [tempEd, setTempEd] = useState({
+		school: null,
+		study: null,
+		startDate: null,
+		endDate: null,
+	});
+
 	const handleSchoolChange = (e) => {
-		setEducation({ ...education, school: e.target.value });
+		setTempEd({ ...tempEd, school: e.target.value });
 	};
 
 	const handleStudyChange = (e) => {
-		setEducation({ ...education, study: e.target.value });
+		setTempEd({ ...tempEd, study: e.target.value });
 	};
 
 	const handleStartDateChange = (e) => {
-		setEducation({ ...education, startDate: e.target.value });
+		setTempEd({ ...tempEd, startDate: e.target.value });
 	};
 
 	const handleEndDateChange = (e) => {
-		setEducation({ ...education, endDate: e.target.value });
+		setTempEd({ ...tempEd, endDate: e.target.value });
+	};
+
+	const handleSave = (e) => {
+		e.preventDefault();
+		setEducation([...education, tempEd]);
+		setActiveIndex(0);
+		setTempEd({ school: null, study: null, startDate: null, endDate: null });
 	};
 
 	return (
 		<>
-			{isActive ? (
+			{isActive && (
 				<>
 					<Field
 						label="School / University"
@@ -48,10 +67,8 @@ const EducationForm = ({ isActive, onShow, education, setEducation }) => {
 							detail={education.endDate}
 						/>
 					</div>
-					<SaveBtn />
+					<button onClick={handleSave}>Save</button>
 				</>
-			) : (
-				<button onClick={onShow}>Show</button>
 			)}
 		</>
 	);
