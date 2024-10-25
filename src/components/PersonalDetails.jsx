@@ -1,11 +1,6 @@
 import Field from "./Field";
-import SaveBtn from "./SaveBtn";
 
 const PersonalDetails = ({ isActive, onShow, details, setDetails }) => {
-	const handleSubmit = () => {
-		console.log(details);
-	};
-
 	const handleNameChange = (e) => {
 		setDetails({ ...details, name: e.target.value });
 	};
@@ -48,7 +43,6 @@ const PersonalDetails = ({ isActive, onShow, details, setDetails }) => {
 						handleInputChange={handleAddressChange}
 						detail={details.address}
 					/>
-					<SaveBtn onSubmit={handleSubmit} />
 				</>
 			) : (
 				<button onClick={onShow}>Show</button>

@@ -23,20 +23,30 @@ const Experience = ({ isActive, onShow, experience, setExperience }) => {
 			<h3 className="text-xl font-bold text-center">Experience</h3>
 			{isActive ? (
 				<>
-					<Field label="Company Name" handleInputChange={handleCompanyChange} />
-					<Field label="Job Title" handleInputChange={handleTitleChange} />
+					<Field
+						label="Company Name"
+						handleInputChange={handleCompanyChange}
+						detail={experience.company}
+					/>
+					<Field
+						label="Job Title"
+						handleInputChange={handleTitleChange}
+						detail={experience.title}
+					/>
 					<div className="flex gap-4">
 						<Field
 							className="flex flex-col gap-2 w-5/12"
 							label="Start Date"
 							type="date"
 							handleInputChange={handleStartDateChange}
+							detail={experience.startDate}
 						/>
 						<Field
 							className="flex flex-col gap-2 w-5/12"
 							label="End Date"
 							type="date"
 							handleInputChange={handleEndDateChange}
+							detail={experience.endDate}
 						/>
 					</div>
 					<SaveBtn />
