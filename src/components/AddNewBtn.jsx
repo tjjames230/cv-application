@@ -1,4 +1,4 @@
-const AddNewBtn = (onSubmit) => {
+const AddNewBtn = ({ onSubmit }) => {
 	const handleClick = (e) => {
 		e.preventDefault();
 
