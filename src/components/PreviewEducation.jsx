@@ -1,21 +1,6 @@
 import formatDate from "../utils/formatDate";
 
 const PreviewEducation = ({ education }) => {
-	const example = [
-		{
-			title: "test title",
-			study: "test study",
-			startDate: "test date",
-			endDate: "test enddate",
-		},
-		{
-			title: "test title",
-			study: "test study",
-			startDate: "test date",
-			endDate: "test enddate",
-		},
-	];
-
 	const listEducation = education.map((educationItem) => {
 		return (
 			<div key={educationItem.study}>

@@ -8,6 +8,7 @@ const EducationForm = ({
 	setEducation,
 }) => {
 	const [tempEd, setTempEd] = useState({
+		id: null,
 		school: null,
 		study: null,
 		startDate: null,

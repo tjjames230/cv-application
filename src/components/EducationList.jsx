@@ -1,10 +1,35 @@
 const EducationList = ({ isActive, onShow, education }) => {
-	console.log(education);
+	const handleEdit = (e) => {
+		e.preventDefault();
+	};
+
+	const handleDelete = (e) => {
+		e.preventDefault();
+	};
+
+	const list = education.map((edItem) => {
+		return (
+			<div
+				key={edItem.id}
+				className="p-4 flex justify-between rounded-lg border-black border border-solid bg-white"
+			>
+				<h3 className="font-bold">{edItem.school}</h3>
+				<div className="flex gap-10">
+					<button className="text-blue-500" onClick={handleEdit}>
+						Edit
+					</button>
+					<button className="text-red-500" onClick={handleDelete}>
+						Delete
+					</button>
+				</div>
+			</div>
+		);
+	});
 
 	if (isActive) {
 		return (
-			<section>
-				<h3>Test</h3>
+			<section className="flex flex-col gap-4">
+				{list}
 				<button onClick={onShow}>Create New</button>
 			</section>
 		);
