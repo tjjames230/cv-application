@@ -21,7 +21,7 @@ function App() {
 
 	return (
 		<>
-			<h2 className="text-3xl font-bold text-center">CV Application</h2>
+			<h2 className="text-3xl font-bold text-center">CV Creator</h2>
 			<main>
 				<Form
 					details={details}

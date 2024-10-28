@@ -1,14 +1,35 @@
 import formatDate from "../utils/formatDate";
 
 const PreviewEducation = ({ education }) => {
-	return (
-		<>
-			<h3>{education[0].school}</h3>
-			<p>{education.study}</p>
-			{education.startDate && <p>{formatDate(education.startDate)}</p>}
-			{education.endDate && <p>{formatDate(education.endDate)}</p>}
-		</>
-	);
+	const example = [
+		{
+			title: "test title",
+			study: "test study",
+			startDate: "test date",
+			endDate: "test enddate",
+		},
+		{
+			title: "test title",
+			study: "test study",
+			startDate: "test date",
+			endDate: "test enddate",
+		},
+	];
+
+	const listEducation = education.map((educationItem) => {
+		return (
+			<div key={educationItem.study}>
+				<h3>test</h3>
+				<p>{educationItem.study}</p>
+				{educationItem.startDate && (
+					<p>{formatDate(educationItem.startDate)}</p>
+				)}
+				{educationItem.endDate && <p>{formatDate(educationItem.endDate)}</p>}
+			</div>
+		);
+	});
+
+	return <section>{listEducation}</section>;
 };
 
 export default PreviewEducation;
