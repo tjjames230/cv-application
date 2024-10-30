@@ -14,6 +14,7 @@ const Education = ({ isActive, onShow, education, setEducation }) => {
 						isActive={activeIndex === 0}
 						onShow={() => setActiveIndex(1)}
 						education={education}
+						setEducation={setEducation}
 					/>
 					<EducationForm
 						isActive={activeIndex === 1}

@@ -1,11 +1,20 @@
-const EducationList = ({ isActive, onShow, education }) => {
+const EducationList = ({ isActive, onShow, education, setEducation }) => {
 	const handleEdit = (e) => {
 		e.preventDefault();
 	};
 
-	const handleDelete = (e) => {
+	const handleDelete = (e, edItem) => {
 		e.preventDefault();
-		console.log(this);
+
+		const temp = [];
+
+		for (let i = 0; i < education.length; i++) {
+			if (education[i].id !== edItem.id) {
+				temp.push(education[i]);
+			}
+		}
+
+		setEducation(temp);
 	};
 
 	const list = education.map((edItem) => {
@@ -19,7 +28,10 @@ const EducationList = ({ isActive, onShow, education }) => {
 					<button className="text-blue-500" onClick={handleEdit}>
 						Edit
 					</button>
-					<button className="text-red-500" onClick={handleDelete}>
+					<button
+						className="text-red-500"
+						onClick={(e) => handleDelete(e, edItem)}
+					>
 						Delete
 					</button>
 				</div>
