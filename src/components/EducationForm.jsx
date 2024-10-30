@@ -43,6 +43,18 @@ const EducationForm = ({
 		});
 	};
 
+	const handleCancel = (e) => {
+		e.preventDefault();
+		setActiveIndex(0);
+		setTempEd({
+			id: null,
+			school: null,
+			study: null,
+			startDate: null,
+			endDate: null,
+		});
+	};
+
 	return (
 		<>
 			{isActive && (
@@ -73,7 +85,10 @@ const EducationForm = ({
 							detail={education.endDate}
 						/>
 					</div>
-					<button onClick={handleSave}>Save</button>
+					<div className="flex gap-4 justify-center">
+						<button onClick={handleSave}>Save</button>
+						<button onClick={handleCancel}>Cancel</button>
+					</div>
 				</>
 			)}
 		</>

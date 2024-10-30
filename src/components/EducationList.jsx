@@ -7,8 +7,8 @@ const EducationList = ({ isActive, onShow, education, setEducation }) => {
 		e.preventDefault();
 
 		const temp = education
-			.map((obj) => (obj.id !== edItem.id ? obj : null))
-			.filter((ele) => ele !== null);
+			.map((obj) => (obj.id !== edItem.id ? obj : null)) // set temp to copy any objects that have different IDs
+			.filter((ele) => ele !== null); // remove null values from temp
 
 		setEducation(temp);
 	};
