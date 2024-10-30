@@ -6,6 +6,8 @@ const EducationForm = ({
 	setActiveIndex,
 	education,
 	setEducation,
+	editObj,
+	setEditObj,
 }) => {
 	const [tempEd, setTempEd] = useState({
 		school: null,
@@ -41,6 +43,7 @@ const EducationForm = ({
 			startDate: null,
 			endDate: null,
 		});
+		setEditObj(null);
 	};
 
 	const handleCancel = (e) => {
@@ -53,6 +56,7 @@ const EducationForm = ({
 			startDate: null,
 			endDate: null,
 		});
+		setEditObj(null);
 	};
 
 	return (
@@ -62,12 +66,12 @@ const EducationForm = ({
 					<Field
 						label="School / University"
 						handleInputChange={handleSchoolChange}
-						detail={education.school}
+						detail={editObj && editObj.school}
 					/>
 					<Field
 						label="Area of Study"
 						handleInputChange={handleStudyChange}
-						detail={education.study}
+						detail={editObj && editObj.study}
 					/>
 					<div className="flex gap-4">
 						<Field
@@ -75,14 +79,14 @@ const EducationForm = ({
 							label="Start Date"
 							type="date"
 							handleInputChange={handleStartDateChange}
-							detail={education.startDate}
+							detail={editObj && editObj.startDate}
 						/>
 						<Field
 							className="flex flex-col gap-2 w-5/12"
 							label="End Date"
 							type="date"
 							handleInputChange={handleEndDateChange}
-							detail={education.endDate}
+							detail={editObj && editObj.endDate}
 						/>
 					</div>
 					<div className="flex gap-4 justify-center">

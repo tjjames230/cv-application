@@ -1,6 +1,14 @@
-const EducationList = ({ isActive, onShow, education, setEducation }) => {
-	const handleEdit = (e) => {
+const EducationList = ({
+	isActive,
+	onShow,
+	education,
+	setEducation,
+	setEditObj,
+}) => {
+	const handleEdit = (e, edItem) => {
 		e.preventDefault();
+		setEditObj(edItem);
+		onShow();
 	};
 
 	const handleDelete = (e, edItem) => {
@@ -21,7 +29,10 @@ const EducationList = ({ isActive, onShow, education, setEducation }) => {
 			>
 				<h3 className="font-bold">{edItem.school}</h3>
 				<div className="flex gap-10">
-					<button className="text-blue-500" onClick={handleEdit}>
+					<button
+						className="text-blue-500"
+						onClick={(e) => handleEdit(e, edItem)}
+					>
 						Edit
 					</button>
 					<button

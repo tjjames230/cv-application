@@ -4,6 +4,7 @@ import EducationForm from "./EducationForm";
 
 const Education = ({ isActive, onShow, education, setEducation }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
+	const [editObj, setEditObj] = useState(null);
 
 	return (
 		<section className="bg-slate-300 p-5 flex flex-col gap-4">
@@ -15,12 +16,15 @@ const Education = ({ isActive, onShow, education, setEducation }) => {
 						onShow={() => setActiveIndex(1)}
 						education={education}
 						setEducation={setEducation}
+						setEditObj={setEditObj}
 					/>
 					<EducationForm
 						isActive={activeIndex === 1}
 						setActiveIndex={setActiveIndex}
 						education={education}
 						setEducation={setEducation}
+						editObj={editObj}
+						setEditObj={setEditObj}
 					/>
 				</>
 			) : (
