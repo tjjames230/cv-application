@@ -6,13 +6,9 @@ const EducationList = ({ isActive, onShow, education, setEducation }) => {
 	const handleDelete = (e, edItem) => {
 		e.preventDefault();
 
-		const temp = [];
-
-		for (let i = 0; i < education.length; i++) {
-			if (education[i].id !== edItem.id) {
-				temp.push(education[i]);
-			}
-		}
+		const temp = education
+			.map((obj) => (obj.id !== edItem.id ? obj : null))
+			.filter((ele) => ele !== null);
 
 		setEducation(temp);
 	};
