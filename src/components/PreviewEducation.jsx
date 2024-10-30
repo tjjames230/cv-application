@@ -3,7 +3,7 @@ import formatDate from "../utils/formatDate";
 const PreviewEducation = ({ education }) => {
 	const listEducation = education.map((educationItem) => {
 		return (
-			<div key={educationItem.study}>
+			<div key={educationItem.id}>
 				<h3>{educationItem.school}</h3>
 				<p>{educationItem.study}</p>
 				{educationItem.startDate && (

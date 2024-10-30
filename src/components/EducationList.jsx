@@ -5,6 +5,7 @@ const EducationList = ({ isActive, onShow, education }) => {
 
 	const handleDelete = (e) => {
 		e.preventDefault();
+		console.log(this);
 	};
 
 	const list = education.map((edItem) => {

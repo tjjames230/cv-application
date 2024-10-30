@@ -8,7 +8,6 @@ const EducationForm = ({
 	setEducation,
 }) => {
 	const [tempEd, setTempEd] = useState({
-		id: null,
 		school: null,
 		study: null,
 		startDate: null,
@@ -33,9 +32,15 @@ const EducationForm = ({
 
 	const handleSave = (e) => {
 		e.preventDefault();
-		setEducation([...education, tempEd]);
+		setEducation([...education, { ...tempEd, id: crypto.randomUUID() }]);
 		setActiveIndex(0);
-		setTempEd({ school: null, study: null, startDate: null, endDate: null });
+		setTempEd({
+			id: null,
+			school: null,
+			study: null,
+			startDate: null,
+			endDate: null,
+		});
 	};
 
 	return (
