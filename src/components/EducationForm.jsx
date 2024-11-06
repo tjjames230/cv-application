@@ -90,11 +90,13 @@ const EducationForm = ({
 						label="School / University"
 						handleInputChange={handleSchoolChange}
 						detail={editObj && editObj.school}
+						maxLength={40}
 					/>
 					<Field
 						label="Area of Study"
 						handleInputChange={handleStudyChange}
 						detail={editObj && editObj.study}
+						maxLength={40}
 					/>
 					<div className="flex gap-4">
 						<Field

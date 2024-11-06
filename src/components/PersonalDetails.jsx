@@ -26,22 +26,26 @@ const PersonalDetails = ({ isActive, onShow, details, setDetails }) => {
 						label="Full Name"
 						handleInputChange={handleNameChange}
 						detail={details.name}
+						maxLength={50}
 					/>
 					<Field
 						label="Email"
 						type="email"
 						handleInputChange={handleEmailChange}
 						detail={details.email}
+						maxLength={50}
 					/>
 					<Field
 						label="Phone Number"
 						handleInputChange={handleNumberChange}
 						detail={details.number}
+						maxLength={14}
 					/>
 					<Field
 						label="Address"
 						handleInputChange={handleAddressChange}
 						detail={details.address}
+						maxLength={50}
 					/>
 				</>
 			) : (

@@ -92,11 +92,13 @@ const ExperienceForm = ({
 						label="Company Name"
 						handleInputChange={handleCompanyChange}
 						detail={editObj && editObj.company}
+						maxLength={40}
 					/>
 					<Field
 						label="Job Title"
 						handleInputChange={handleTitleChange}
 						detail={editObj && editObj.title}
+						maxLength={40}
 					/>
 					<div className="flex gap-4">
 						<Field
