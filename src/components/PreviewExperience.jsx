@@ -14,7 +14,7 @@ const PreviewExperience = ({ experience }) => {
 		);
 	});
 
-	return <section>{listExperience}</section>;
+	return <section className="p-4">{listExperience}</section>;
 };
 
 export default PreviewExperience;

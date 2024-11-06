@@ -14,7 +14,7 @@ const Form = ({
 	const [activeIndex, setActiveIndex] = useState(0);
 
 	return (
-		<form className="flex flex-col gap-8 w-8/12">
+		<form className="flex flex-col gap-8 w-6/12">
 			<PersonalDetails
 				isActive={activeIndex === 0}
 				onShow={() => setActiveIndex(0)}

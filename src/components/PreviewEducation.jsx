@@ -14,7 +14,7 @@ const PreviewEducation = ({ education }) => {
 		);
 	});
 
-	return <section>{listEducation}</section>;
+	return <section className="p-4">{listEducation}</section>;
 };
 
 export default PreviewEducation;
