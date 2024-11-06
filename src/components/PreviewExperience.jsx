@@ -1,14 +1,20 @@
 import formatDate from "../utils/formatDate";
 
 const PreviewExperience = ({ experience }) => {
-	return (
-		<section>
-			<h3>{experience.company}</h3>
-			<p>{experience.title}</p>
-			<p>{experience.startDate && formatDate(experience.startDate)}</p>
-			<p>{experience.endDate && formatDate(experience.endDate)}</p>
-		</section>
-	);
+	const listExperience = experience.map((experienceItem) => {
+		return (
+			<div key={experienceItem.id}>
+				<h3>{experienceItem.company}</h3>
+				<p>{experienceItem.title}</p>
+				{experienceItem.startDate && (
+					<p>{formatDate(experienceItem.startDate)}</p>
+				)}
+				{experienceItem.endDate && <p>{formatDate(experienceItem.endDate)}</p>}
+			</div>
+		);
+	});
+
+	return <section>{listExperience}</section>;
 };
 
 export default PreviewExperience;

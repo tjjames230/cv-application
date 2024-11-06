@@ -12,12 +12,7 @@ function App() {
 
 	const [education, setEducation] = useState([]);
 
-	const [experience, setExperience] = useState({
-		company: null,
-		title: null,
-		startDate: null,
-		endDate: null,
-	});
+	const [experience, setExperience] = useState([]);
 
 	return (
 		<>

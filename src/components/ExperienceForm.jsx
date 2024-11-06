@@ -1,65 +1,67 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Field from "./Field";
 
-const EducationForm = ({
+const ExperienceForm = ({
 	isActive,
 	setActiveIndex,
-	education,
-	setEducation,
+	experience,
+	setExperience,
 	editObj,
 	setEditObj,
 }) => {
-	const [tempEd, setTempEd] = useState({
-		school: null,
-		study: null,
+	const [tempEx, setTempEx] = useState({
+		company: null,
+		title: null,
 		startDate: null,
 		endDate: null,
 	});
 
 	useEffect(() => {
 		if (editObj) {
-			setTempEd({
-				school: editObj.school,
-				study: editObj.study,
+			setTempEx({
+				company: editObj.company,
+				title: editObj.title,
 				startDate: editObj.startDate,
 				endDate: editObj.endDate,
 			});
 		}
 	}, [editObj]);
 
-	const handleSchoolChange = (e) => {
-		setTempEd({ ...tempEd, school: e.target.value });
+	const handleCompanyChange = (e) => {
+		setTempEx({ ...tempEx, company: e.target.value });
 	};
 
-	const handleStudyChange = (e) => {
-		setTempEd({ ...tempEd, study: e.target.value });
+	const handleTitleChange = (e) => {
+		setTempEx({ ...tempEx, title: e.target.value });
 	};
 
 	const handleStartDateChange = (e) => {
-		setTempEd({ ...tempEd, startDate: e.target.value });
+		setTempEx({ ...tempEx, startDate: e.target.value });
 	};
 
 	const handleEndDateChange = (e) => {
-		setTempEd({ ...tempEd, endDate: e.target.value });
+		setTempEx({ ...tempEx, endDate: e.target.value });
 	};
 
 	const handleSave = (e) => {
 		e.preventDefault();
 		if (!editObj) {
-			setEducation([...education, { ...tempEd, id: crypto.randomUUID() }]);
+			setExperience([...experience, { ...tempEx, id: crypto.randomUUID() }]);
 		} else {
-			const temp = education.map((obj) => (obj.id !== editObj.id ? obj : null)); // set temp to copy any objects that have different IDs
+			const temp = experience.map((obj) =>
+				obj.id !== editObj.id ? obj : null
+			); // set temp to copy any objects that have different IDs
 
 			for (let i = 0; i < temp.length; i++) {
 				if (temp[i] == null) {
-					temp[i] = { ...tempEd, id: editObj.id };
+					temp[i] = { ...tempEx, id: editObj.id };
 				}
 			}
 
-			setEducation([...temp]);
+			setExperience([...temp]);
 		}
 		setActiveIndex(0);
-		setTempEd({
+		setTempEx({
 			id: null,
 			school: null,
 			study: null,
@@ -72,7 +74,7 @@ const EducationForm = ({
 	const handleCancel = (e) => {
 		e.preventDefault();
 		setActiveIndex(0);
-		setTempEd({
+		setTempEx({
 			id: null,
 			school: null,
 			study: null,
@@ -87,14 +89,14 @@ const EducationForm = ({
 			{isActive && (
 				<>
 					<Field
-						label="School / University"
-						handleInputChange={handleSchoolChange}
-						detail={editObj && editObj.school}
+						label="Company Name"
+						handleInputChange={handleCompanyChange}
+						detail={editObj && editObj.company}
 					/>
 					<Field
-						label="Area of Study"
-						handleInputChange={handleStudyChange}
-						detail={editObj && editObj.study}
+						label="Job Title"
+						handleInputChange={handleTitleChange}
+						detail={editObj && editObj.title}
 					/>
 					<div className="flex gap-4">
 						<Field
@@ -122,4 +124,4 @@ const EducationForm = ({
 	);
 };
 
-export default EducationForm;
+export default ExperienceForm;
