@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Field from "./Field";
 
 const EducationForm = ({
@@ -15,6 +15,17 @@ const EducationForm = ({
 		startDate: null,
 		endDate: null,
 	});
+
+	useEffect(() => {
+		if (editObj) {
+			setTempEd({
+				school: editObj.school,
+				study: editObj.study,
+				startDate: editObj.startDate,
+				endDate: editObj.endDate,
+			});
+		}
+	}, [editObj]);
 
 	const handleSchoolChange = (e) => {
 		setTempEd({ ...tempEd, school: e.target.value });
@@ -34,7 +45,25 @@ const EducationForm = ({
 
 	const handleSave = (e) => {
 		e.preventDefault();
-		setEducation([...education, { ...tempEd, id: crypto.randomUUID() }]);
+		if (!editObj) {
+			setEducation([...education, { ...tempEd, id: crypto.randomUUID() }]);
+		} else {
+			const temp = education.map((obj) => (obj.id !== editObj.id ? obj : null)); // set temp to copy any objects that have different IDs
+
+			for (let i = 0; i < temp.length; i++) {
+				if (temp[i] == null) {
+					temp[i] = { ...tempEd, id: editObj.id };
+				}
+			}
+
+			setEducation([...temp]);
+
+			// for (let i = 0; i < education.length; i++) {
+			// 	if (education[i].id === editObj.id) {
+			// 		setEducation([...education]);
+			// 	}
+			// }
+		}
 		setActiveIndex(0);
 		setTempEd({
 			id: null,
@@ -44,6 +73,7 @@ const EducationForm = ({
 			endDate: null,
 		});
 		setEditObj(null);
+		console.log(education);
 	};
 
 	const handleCancel = (e) => {
