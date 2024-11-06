@@ -21,17 +21,17 @@ const Form = ({
 				details={details}
 				setDetails={setDetails}
 			/>
-			<Education
-				isActive={activeIndex === 1}
-				onShow={() => setActiveIndex(1)}
-				education={education}
-				setEducation={setEducation}
-			/>
 			<Experience
 				isActive={activeIndex === 2}
 				onShow={() => setActiveIndex(2)}
 				experience={experience}
 				setExperience={setExperience}
+			/>
+			<Education
+				isActive={activeIndex === 1}
+				onShow={() => setActiveIndex(1)}
+				education={education}
+				setEducation={setEducation}
 			/>
 		</form>
 	);
