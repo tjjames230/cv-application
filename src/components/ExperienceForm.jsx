@@ -12,6 +12,7 @@ const ExperienceForm = ({
 	const [tempEx, setTempEx] = useState({
 		company: null,
 		title: null,
+		duties: null,
 		startDate: null,
 		endDate: null,
 	});
@@ -21,6 +22,7 @@ const ExperienceForm = ({
 			setTempEx({
 				company: editObj.company,
 				title: editObj.title,
+				duties: editObj.duties,
 				startDate: editObj.startDate,
 				endDate: editObj.endDate,
 			});
@@ -33,6 +35,10 @@ const ExperienceForm = ({
 
 	const handleTitleChange = (e) => {
 		setTempEx({ ...tempEx, title: e.target.value });
+	};
+
+	const handleDutiesChange = (e) => {
+		setTempEx({ ...tempEx, duties: e.target.value });
 	};
 
 	const handleStartDateChange = (e) => {
@@ -65,6 +71,7 @@ const ExperienceForm = ({
 			id: null,
 			school: null,
 			study: null,
+			duties: null,
 			startDate: null,
 			endDate: null,
 		});
@@ -78,6 +85,7 @@ const ExperienceForm = ({
 			id: null,
 			school: null,
 			study: null,
+			duties: null,
 			startDate: null,
 			endDate: null,
 		});
@@ -100,6 +108,17 @@ const ExperienceForm = ({
 						detail={editObj && editObj.title}
 						maxLength={40}
 					/>
+					<div className="flex flex-col w-full gap-2">
+						<label htmlFor="duties">Job Responsibilities</label>
+						<textarea
+							name="duties"
+							id="duties"
+							rows={4}
+							cols={50}
+							onChange={handleDutiesChange}
+							defaultValue={editObj && editObj.duties}
+						></textarea>
+					</div>
 					<div className="flex gap-4">
 						<Field
 							className="flex flex-col gap-2 w-5/12"

@@ -14,6 +14,7 @@ const PreviewExperience = ({ experience }) => {
 					)}
 				</div>
 				<p className="italic">{experienceItem.title}</p>
+				<p>{experienceItem.duties}</p>
 			</div>
 		);
 	});
