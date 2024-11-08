@@ -3,18 +3,29 @@ import formatDate from "../utils/formatDate";
 const PreviewEducation = ({ education }) => {
 	const listEducation = education.map((educationItem) => {
 		return (
-			<div key={educationItem.id}>
-				<h3>{educationItem.school}</h3>
-				<p>{educationItem.study}</p>
-				{educationItem.startDate && (
-					<p>{formatDate(educationItem.startDate)}</p>
-				)}
-				{educationItem.endDate && <p>{formatDate(educationItem.endDate)}</p>}
+			<div key={educationItem.id} className="flex flex-col gap-1">
+				<div className="flex justify-between items-center">
+					<h3 className="font-bold">{educationItem.school}</h3>
+					{educationItem.startDate && educationItem.endDate && (
+						<p className="text-sm align-bottom">
+							{formatDate(educationItem.startDate)} -{" "}
+							{formatDate(educationItem.endDate)}
+						</p>
+					)}
+				</div>
+				<p className="italic">{educationItem.study}</p>
 			</div>
 		);
 	});
 
-	return <section className="p-6">{listEducation}</section>;
+	return (
+		<section className="flex flex-col gap-4 p-6">
+			<h2 className="text-center text-lg">
+				{listEducation.length > 0 && "EDUCATION"}
+			</h2>
+			{listEducation}
+		</section>
+	);
 };
 
 export default PreviewEducation;

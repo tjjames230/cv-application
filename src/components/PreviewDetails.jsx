@@ -12,18 +12,24 @@ const PreviewDetails = ({ details }) => {
 				{details.name && details.name.toUpperCase()}
 			</h3>
 			<div className="flex gap-6 w-full justify-center text-sm">
-				<p className="flex gap-2 items-center">
-					<FontAwesomeIcon icon={faEnvelope} />
-					{details.email}
-				</p>
-				<p className="flex gap-2 items-center">
-					<FontAwesomeIcon icon={faPhone} />
-					{details.number}
-				</p>
-				<p className="flex gap-2 items-center">
-					<FontAwesomeIcon icon={faLocationPin} />
-					{details.address}
-				</p>
+				{details.email && (
+					<p className="flex gap-2 items-center">
+						<FontAwesomeIcon icon={faEnvelope} />
+						{details.email}
+					</p>
+				)}
+				{details.number && (
+					<p className="flex gap-2 items-center">
+						<FontAwesomeIcon icon={faPhone} />
+						{details.number}
+					</p>
+				)}
+				{details.address && (
+					<p className="flex gap-2 items-center">
+						<FontAwesomeIcon icon={faLocationPin} />
+						{details.address}
+					</p>
+				)}
 			</div>
 		</section>
 	);

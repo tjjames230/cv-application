@@ -5,9 +5,7 @@ const PreviewExperience = ({ experience }) => {
 		return (
 			<div key={experienceItem.id} className="flex flex-col gap-1">
 				<div className="flex justify-between items-center">
-					<h3>
-						{experienceItem.company && experienceItem.company.toUpperCase()}
-					</h3>
+					<h3 className="font-bold">{experienceItem.company}</h3>
 					{experienceItem.startDate && experienceItem.endDate && (
 						<p className="text-sm align-bottom">
 							{formatDate(experienceItem.startDate)} -{" "}
@@ -21,7 +19,12 @@ const PreviewExperience = ({ experience }) => {
 	});
 
 	return (
-		<section className="flex flex-col gap-4 p-6">{listExperience}</section>
+		<section className="flex flex-col gap-4 p-6">
+			<h2 className="text-center text-lg">
+				{listExperience.length > 0 && "EXPERIENCE"}
+			</h2>
+			{listExperience}
+		</section>
 	);
 };
 
