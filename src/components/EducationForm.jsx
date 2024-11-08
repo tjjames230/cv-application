@@ -115,8 +115,18 @@ const EducationForm = ({
 						/>
 					</div>
 					<div className="flex gap-4 justify-center">
-						<button onClick={handleSave}>Save</button>
-						<button onClick={handleCancel}>Cancel</button>
+						<button
+							className="text-sm text-white bg-blue-500 border-blue-500 border-solid border-2 hover:bg-gray-200 hover:text-blue-500 rounded-full px-6 py-1"
+							onClick={handleSave}
+						>
+							Save
+						</button>
+						<button
+							className="text-sm text-red-500 border-red-500 border-solid border-2 hover:bg-red-500 hover:text-white rounded-full px-6 py-1"
+							onClick={handleCancel}
+						>
+							Cancel
+						</button>
 					</div>
 				</>
 			)}

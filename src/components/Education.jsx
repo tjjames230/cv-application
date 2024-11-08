@@ -7,7 +7,7 @@ const Education = ({ isActive, onShow, education, setEducation }) => {
 	const [editObj, setEditObj] = useState(null);
 
 	return (
-		<section className="p-5 flex flex-col gap-4">
+		<section className="p-5 flex flex-col gap-6">
 			<h3 className="text-xl font-bold text-center">Education</h3>
 			{isActive ? (
 				<>
