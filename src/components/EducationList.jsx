@@ -25,18 +25,18 @@ const EducationList = ({
 		return (
 			<div
 				key={edItem.id}
-				className="p-4 flex justify-between rounded-lg border-black border border-solid bg-white"
+				className="p-4 flex justify-between items-center bg-gray-200 rounded-lg drop-shadow-md"
 			>
 				<h3 className="font-bold">{edItem.school}</h3>
-				<div className="flex gap-10">
+				<div className="flex gap-4">
 					<button
-						className="text-blue-500"
+						className="text-sm text-gray-700 border-gray-700 border-solid border-2 hover:bg-gray-700 hover:text-white rounded-full px-6 py-1"
 						onClick={(e) => handleEdit(e, edItem)}
 					>
 						Edit
 					</button>
 					<button
-						className="text-red-500"
+						className="text-sm text-red-500 border-red-500 border-solid border-2 hover:bg-red-500 hover:text-white rounded-full px-6 py-1"
 						onClick={(e) => handleDelete(e, edItem)}
 					>
 						Delete
@@ -50,7 +50,12 @@ const EducationList = ({
 		return (
 			<section className="flex flex-col gap-4">
 				{list}
-				<button onClick={onShow}>Create New</button>
+				<button
+					className="text-white bg-blue-500 border-solid border-2 hover:border-blue-500 hover:text-blue-500 hover:bg-gray-200 rounded-full py-1"
+					onClick={onShow}
+				>
+					Create New
+				</button>
 			</section>
 		);
 	}

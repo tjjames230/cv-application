@@ -7,7 +7,7 @@ const Education = ({ isActive, onShow, education, setEducation }) => {
 	const [editObj, setEditObj] = useState(null);
 
 	return (
-		<section className="bg-slate-300 p-5 flex flex-col gap-4">
+		<section className="p-5 flex flex-col gap-4">
 			<h3 className="text-xl font-bold text-center">Education</h3>
 			{isActive ? (
 				<>
@@ -28,7 +28,12 @@ const Education = ({ isActive, onShow, education, setEducation }) => {
 					/>
 				</>
 			) : (
-				<button onClick={onShow}>Show</button>
+				<button
+					className="text-white bg-gray-700 border-solid border-2 hover:border-gray-700 hover:text-gray-700 hover:bg-gray-200 rounded-full py-1"
+					onClick={onShow}
+				>
+					Show
+				</button>
 			)}
 		</section>
 	);
